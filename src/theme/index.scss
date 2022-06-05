@@ -1,0 +1,31 @@
+:root {
+    // 主题色
+    // --system-primary-color: #61e8d1;
+    --system-primary-color: #409EFF;
+    --system-primary-text-color: #fff;
+    // logo颜色相关
+    --system-logo-color: #f1f1f1;
+    --system-logo-background: #263445;
+    // 菜单颜色相关
+    --system-menu-text-color: #111;
+    --system-menu-background: #fff;
+    --system-menu-children-background: #fff;
+    --system-menu-submenu-active-color: #49aa9f;
+    // --system-menu-hover-background: #bfcbd9;
+    // element主题色修改
+    --el-color-primary: var(--system-primary-color);
+}
+
+// 进度条颜色修改为主题色
+body #nprogress .bar {
+    background-color: var(--system-primary-color);
+}
+
+body #nprogress .peg {
+    box-shadow: 0 0 10px var(--system-primary-color), 0 0 5px var(--system-primary-color);
+}
+
+body #nprogress .spinner-icon {
+    border-top-color: var(--system-primary-color);
+    border-left-color: var(--system-primary-color);
+}

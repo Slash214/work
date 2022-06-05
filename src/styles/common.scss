@@ -1,0 +1,6 @@
+@import "./variables.scss";
+@import './mixin.scss';
+.safe_area {
+    width: $w1200;
+    margin: 0 auto;
+}
