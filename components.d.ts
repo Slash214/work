@@ -8,7 +8,7 @@ declare module '@vue/runtime-core' {
     BackTop: typeof import('./src/components/BackTop/index.vue')['default']
     BaseTable: typeof import('./src/components/BaseTable/index.vue')['default']
     'Breadcrumb.vue': typeof import('./src/components/Breadcrumb.vue/index.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Crumbs: typeof import('./src/components/Crumbs/index.vue')['default']
     Loading: typeof import('./src/components/Loading/index.vue')['default']
     MenuBox: typeof import('./src/components/MenuBox/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

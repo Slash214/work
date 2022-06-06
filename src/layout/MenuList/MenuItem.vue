@@ -57,13 +57,13 @@ export default defineComponent({
     // todo: 优化if结构
     const showMenuType = computed(() => { // 0: 无子菜单， 1：有1个子菜单， 2：显示上下级子菜单
       if (menu.children && (menu.children.length > 1 || (menu.children.length === 1 && menu.alwayShow))) {
-        console.warn('当前的menu', menu)
+        // console.warn('当前的menu', menu)
         return 2
       } else if (menu.children && menu.children.length === 1 && !menu.alwayShow) {
-        console.warn('当前的menu', menu)
+        // console.warn('当前的menu', menu)
         return 1
       } else {
-        console.warn('当前的menu', menu)
+        // console.warn('当前的menu', menu)
         return 0
       }
     })
@@ -87,7 +87,7 @@ export default defineComponent({
       return path
     })
  
-    console.error('showMenuType', showMenuType)
+    // console.error('showMenuType', showMenuType)
     return {
       showMenuType,
       pathResolve

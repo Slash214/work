@@ -1,6 +1,6 @@
 <template>
     <div class="picker">
-        <span class="name">时间选择</span>
+        <span class="name">时间</span>
         <el-date-picker
             @change="pickerChange"
             @panel-change="panelChange"
@@ -69,6 +69,7 @@ const panelChange = (e: any) => {
 .picker {
     .name {
         padding-right: 10px;
+        font-size: 14px;
     }
 }
 </style>

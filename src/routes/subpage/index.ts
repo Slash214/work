@@ -25,6 +25,12 @@ const subPage: Array<RouteRecordRaw> = [
 				name: 'grow',
 				meta: { title: 'COA成长报告',  },
 				component: () => import('views/Record/report/grow.vue')
+			},
+			{
+				path: 'preview',
+				name: 'preview',
+				meta: { title: '儿童成长相册预览',  },
+				component: () => import('views/Record/report/preview.vue')
 			}
 		]
 	},

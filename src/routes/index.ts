@@ -66,6 +66,8 @@ router.beforeEach((to, _from, next) => {
 
 // 路由跳转之后的监听操作
 router.afterEach((to, from) => {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
     NProgress.done()
 })
 

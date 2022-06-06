@@ -4,8 +4,9 @@
 
 
 ## 目录结构
--- public
--- src  项目文件
+* public
+* .vscode  vscode配置文件
+* src  项目文件
 > * api   接口目录   
 > * assets 静态资源   
 > * common 公共文件   
@@ -22,5 +23,4 @@
 > * main.ts  入口函数   
 > * .prettierrc.js  格式化规则文件   
 > * auto-imports.d.ts  自动导入声明文件   
-> * vite.config.ts  项目配置, 启动端口, 跨域, 目录,打包 等等   
--- .vscode  vscode配置文件   
+> * vite.config.ts  项目配置, 启动端口, 跨域, 目录,打包 等等     

@@ -4,6 +4,7 @@
         background-color="var(--system-menu-background)"
         text-color="var(--system-menu-text-color)"
         active-text-color="var(--system-primary-color)"
+        :default-active="'1'"
     >
         <menu-item v-for="(i, key) in allRouters" :menu="i" :key="key" />
     </el-menu>
