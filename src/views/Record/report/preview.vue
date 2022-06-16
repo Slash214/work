@@ -1,7 +1,6 @@
 <template>
 	<div class="main">
 		<Crumbs :navlist="state.list" />
-
 		<div class="privew">
 			<div class="box" v-for="i in 9" :key="i">12321</div>
 		</div>

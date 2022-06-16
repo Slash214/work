@@ -1,7 +1,7 @@
 <template>
     <div class="archive">
        <div class="item" @click="gotoDetails(item)" v-for="item of state.icon" :key="item.id"> 
-		  <SvgIcon :name="item.name"  />
+		  <SvgIcon :size="'80'" :name="item.name"  />
 		  <h4>{{item.title}}</h4>
 		  <p>{{item.desc}}</p>
 	   </div>

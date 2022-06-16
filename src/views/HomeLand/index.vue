@@ -1,7 +1,7 @@
 <template>
     <div class="tab">
         <div class="base" v-for="val in state.icon" :key="val.id">
-            <SvgIcon class="icons" :name="val.icon"></SvgIcon>
+            <SvgIcon size="80" class="icons" :name="val.icon"></SvgIcon>
             <p>{{ val.name }}</p>
         </div>
     </div>

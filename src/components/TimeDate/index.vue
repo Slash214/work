@@ -6,9 +6,9 @@
             @panel-change="panelChange"
             v-model="value1"
             type="daterange"
-            range-separator="To"
-            start-placeholder="开始的时间"
-            end-placeholder="结束的时间"
+            range-separator="到"
+            start-placeholder="开始时间"
+            end-placeholder="结束时间"
             :shortcuts="shortcuts"
             :disabled-date="disabledDate"
         />
@@ -16,10 +16,11 @@
 </template>
 
 <script setup lang="ts">
+import { formatTime } from '@/utils/tool';
 import { ref } from 'vue'
 
 const value1 = ref('')
-
+const emit = defineEmits(['getChangeTime'])
 const shortcuts = [
     {
         text: '上周',
@@ -54,15 +55,22 @@ const disabledDate = (time: Date) => {
     return time.getTime() > Date.now()
 }
 
+
 // 值改变的时候触发
 const pickerChange = (e: any) => {
-    console.warn(e)
+    // e is array => start === e[0]  end === e[1]
+    console.warn(`date time value is change, start time ${e[0]}, end time ${e[1]}`)
+    let timeArr: [] = []
+    timeArr = e.map((item: Date) => formatTime(item))
+    console.warn('success', timeArr)
+    emit('getChangeTime', timeArr)
 }
 
 // 面板切换的时候触发
 const panelChange = (e: any) => {
-    console.log('面包改变', e)
+    console.log('面版改变', e)
 }
+
 </script>
 
 <style scoped lang="scss">

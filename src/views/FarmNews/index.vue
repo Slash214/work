@@ -3,7 +3,7 @@
         <div class="options">
             <!-- <TimeDate /> -->
             <Select />
-            <el-button plain type="primary" size="large">发布动态</el-button>
+            <el-button plain type="primary">发布动态</el-button>
         </div>
 
         <Loading :show="state.show" />

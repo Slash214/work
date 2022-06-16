@@ -9,6 +9,7 @@
         "lint:style": "stylelint --fix \"src/**/*.{css,scss}\""
     },
     "dependencies": {
+        "date-fns": "^2.28.0",
         "vue": "^3.2.25"
     },
     "devDependencies": {

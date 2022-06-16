@@ -1,5 +1,6 @@
 const prdURL = 'https://www.lovehaha.cn/api'
 const mockURL = 'https://www.fastmock.site/mock/ad6546ec6973c684608e11227e797c5e/api'
+const devURL = ''
 
 import request from './http'
 export function userLogin(data: { username: string, password: string }): any {

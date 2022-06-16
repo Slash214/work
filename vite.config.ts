@@ -4,6 +4,8 @@ import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 
 const pathResolve = (dir: string) => resolve(__dirname, dir)
 
@@ -11,7 +13,14 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport(),
-    Components(),
+    Components({
+      resolvers: [ElementPlusResolver()],
+      dirs: ['src/components'],
+      extensions: ['vue'],
+      dts: 'src/components.d.ts',
+      include: [/.vue$/, /.vue?vue/],
+      exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/],
+    }),
     createSvgIconsPlugin({
       iconDirs: [pathResolve('./src/icons/svg')],
       symbolId: '[name]'

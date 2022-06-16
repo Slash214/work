@@ -90,7 +90,7 @@ onMounted(async () => {
             }
         }
         .base {
-            width: 48%;
+            width: 49%;
             background-color: $white;
             padding: 30px 20px;
             height: 156px;

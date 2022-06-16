@@ -2,7 +2,7 @@
     <span class="tips">{{ tip }}</span>
     <el-select
         @change="selectOnchange"
-        v-model="value"
+        v-model="val"
         class="m-2"
         :placeholder="tip || '默认搜索条件'"
         :size="props.size"
@@ -17,7 +17,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+
+import { onMounted, ref } from 'vue'
 
 interface selectlist {
     label: string
@@ -37,13 +38,25 @@ const props: any = defineProps({
         type: String,
         default: 'default',
     },
+    value: {
+        type: String,
+        default: ''
+    }
 })
 
-const value = ref('')
+const emit = defineEmits(['updateValue'])
+const val = ref('')
+
+onMounted(() => {
+    if (props.value) val.value = props.value
+})
 
 const selectOnchange = () => {
-    console.log('当前选择的值', value.value)
+    console.log('当前选择的值', val)
+    emit('updateValue', val)
 }
+
+
 </script>
 
 <style>
@@ -56,3 +69,4 @@ const selectOnchange = () => {
     width: 140px;
 }
 </style>
+

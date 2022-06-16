@@ -36,8 +36,9 @@ import MenuList from './MenuList/index.vue';
          background-color: #fff;
          height: 100%;
          min-height: 10vh;
+         // border: 1px solid #e5e5e5;
          box-shadow: $base;
-         border-radius: $br-m;
+         border-radius: $br-s;
       }
       .el-main {
          padding-top: 0;
