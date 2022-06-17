@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <Crumbs :navlist="state.LevelList"></Crumbs>
+        <Crumbs :navlist="state.crumbs"></Crumbs>
         <div class="options">
             <h4 class="mb10">请选择以下条件，获取报告</h4>
             <div class="timer">
@@ -36,10 +36,12 @@ import Crumbs from '@/components/Crumbs/index.vue'
 import TimeDate from '@/components/TimeDate/index.vue'
 import { useRouter } from 'vue-router'
 
+
+
 const router = useRouter()
 const state = reactive({
-    LevelList: [
-        { name: '家园报告', link: '/record/report', active: false },
+    crumbs: [
+        { name: '班级归档', link: '/record/report', active: false },
         { name: '儿童成长相册', link: '/subPage/album', active: true },
     ],
     classList: [
@@ -66,14 +68,14 @@ const changeCover = () => {
     background-color: $white;
     padding: 20px;
     .options {
-        padding: 0 70px;
+        width: 90%;
         margin: 40px auto;
         .timer {
             display: flex;
         }
     }
     .content {
-        padding: 0 70px;
+        width: 90%;
         margin: 40px auto 0 auto;
         .list {
             width: 100%;
@@ -83,12 +85,12 @@ const changeCover = () => {
                 font-weight: 550;
             }
             .brds {
-                width: 100px;
-                height: 100px;
+                width: 90px;
+                height: 90px;
                 margin: 0 10px 10px 0;
                 border-radius: $br-s;
                 background-color: #eee;
-                box-shadow: $simple;
+                box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 0 6px rgb(0 0 0 / 4%);
                 @include flex-auto(center, center, column);
                 &:hover {
                     background-color: var(--system-primary-color);

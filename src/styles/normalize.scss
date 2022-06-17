@@ -86,6 +86,16 @@ video {
     vertical-align: baseline;
 }
 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
 
 /* HTML5 display-role reset for older browsers */
 
@@ -111,6 +121,7 @@ body {
     font-family: "PingFang SC", "Roboto", "Helvetica", "Arial", sans-serif;
     line-height: 1;
     background-color: #f5f5f5;
+    font-size: 14px;
 }
 
 ol,
@@ -202,4 +213,21 @@ a {
 
 .mb40 {
     margin-bottom: 40px;
+}
+
+// 后续fix 
+.el-button {
+    border: none;
+    outline: none;
+    background: var(--el-button-bg-color);
+    border-color: var(--el-button-border-color);
+    color: var( --el-button-text-color);
+    &:hover {
+        background: var(--el-button-hover-bg-color);
+        border-color: var(--el-button-hover-border-color);
+        color: var( --el-button-hover-text-color);
+    }
+    &:active {
+        color: var(--el-button-active-text-color);
+    }
 }

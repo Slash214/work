@@ -1,6 +1,6 @@
 <template>
     <el-table :data="list" border style="width: 100%" v-if="row">
-        <el-table-column :prop="menu[i - 1]" :label="header[i- 1]" v-for="i in row" />
+        <el-table-column :prop="menu[i - 1]" :label="header[i - 1]" v-for="i in row" />
     </el-table>
 </template>
 
@@ -8,10 +8,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { strNumberArr } from '@/typings'
+
+
 const props = defineProps({
     list: {
         type: Array,
-        default: [],
+        default: <strNumberArr><unknown>[],
     },
 	header: {
 	   type: Object,

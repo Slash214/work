@@ -34,6 +34,20 @@ const subPage: Array<RouteRecordRaw> = [
 			}
 		]
 	},
+	{
+		path: '/subPage',
+		component: Layout,
+		redirect: '/subPage/gradefile',
+		meta: { name: '', },
+		children: [
+			{
+				path: 'gradefile',
+				name: 'gradefile',
+				meta: { title: '班级归档记录',  },
+				component: () => import('views/Record/archive/gradeFile.vue')
+			},
+		]
+	},
 ]
 
 export default subPage

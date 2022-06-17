@@ -11,7 +11,7 @@
             </div>
             <div class="base card">
                 <p>开通类型：记录归档</p>
-                <p>有效期：{{ formatTime() }}  <el-icon><Avatar /></el-icon></p>
+                <p>有效期：{{ formatTime(new Date()) }}  <el-icon><Avatar /></el-icon></p>
             </div>
         </div>
         <div class="mid">

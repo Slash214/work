@@ -1,4 +1,4 @@
-export interface strArr {
+export interface strNumberArr {
 	one: string | number,
 	two: string | number,
 	three?: string | number,

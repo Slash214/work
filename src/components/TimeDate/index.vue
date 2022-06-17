@@ -59,11 +59,14 @@ const disabledDate = (time: Date) => {
 // 值改变的时候触发
 const pickerChange = (e: any) => {
     // e is array => start === e[0]  end === e[1]
-    console.warn(`date time value is change, start time ${e[0]}, end time ${e[1]}`)
-    let timeArr: [] = []
-    timeArr = e.map((item: Date) => formatTime(item))
-    console.warn('success', timeArr)
-    emit('getChangeTime', timeArr)
+    // console.warn(`date time value is change, start time ${e[0]}, end time ${e[1]}`)
+
+    if (e) {
+        let timeArr: [] = []
+        timeArr = e.map((item: Date) => formatTime(item))
+        console.warn('success', timeArr)
+        emit('getChangeTime', timeArr)
+    }
 }
 
 // 面板切换的时候触发

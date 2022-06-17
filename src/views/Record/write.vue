@@ -24,11 +24,12 @@
 	<div class="container">
 		<div class="types">
 			<p>记录类型</p>
-			<el-button>全部类型</el-button>
-			<el-button>COA记录</el-button>
-			<el-button>叙事记录</el-button>
-			<el-button>大动作记录</el-button>
-			<el-button>活动记录</el-button>
+
+			<el-button type="primary">全部类型</el-button>
+			<el-button type="primary">COA记录</el-button>
+			<el-button type="primary">叙事记录</el-button>
+			<el-button type="primary">大动作记录</el-button>
+			<el-button type="primary">活动记录</el-button>
 		</div>
 	</div>
 </template>
