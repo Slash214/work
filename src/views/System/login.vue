@@ -32,9 +32,9 @@ const login = async () => {
                 showClose: true,
                 duration: 1000
             })
-            let userInfo = data
+            // let userInfo = data
             // userInfo.token = ''
-            localStorage.userInfo
+            localStorage.setItem('userInfo', JSON.stringify(data))
 			localStorage.setItem('token', data?.token)
 			location.reload()
 		}

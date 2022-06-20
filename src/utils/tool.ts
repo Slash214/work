@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
 /**
  * 时间格式化
- * @param {Date | string } date 时间 可不传
+ * @param {Date } date 时间
  * @param {string} type 格式类型 default yyyy/MM/dd   
  * @returns {string}
  */

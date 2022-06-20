@@ -80,6 +80,7 @@ const setOptions = (command: select) => {
 	if (command.id === 2) {
 		ElMessage('正在退出中...')
 		localStorage.removeItem('token')
+		localStorage.removeItem('userInfo')
 		setTimeout(() => {
 			location.reload()
 		}, 1000);

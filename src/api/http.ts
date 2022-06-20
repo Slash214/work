@@ -38,7 +38,7 @@ service.interceptors.response.use(
 	(error: AxiosError) => {
 		const { response } = error
 		if (response) {
-			ElMessage.error('异常错误')
+			ElMessage.error('服务器请求错误！工程师正在维修')
 			return Promise.reject(response.data)
 		}
 		ElMessage.warning('网络连接异常,请稍后再试!')

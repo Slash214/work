@@ -1,6 +1,6 @@
 <template>
     <div class="picker">
-        <span class="name">时间</span>
+        <!-- <span class="name">时间</span> -->
         <el-date-picker
             @change="pickerChange"
             @panel-change="panelChange"

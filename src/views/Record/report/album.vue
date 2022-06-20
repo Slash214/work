@@ -4,8 +4,11 @@
         <div class="options">
             <h4 class="mb10">请选择以下条件，获取报告</h4>
             <div class="timer">
-                <TimeDate></TimeDate>
-                <Select :selectlist="state.classList" tip="选择班级" />
+                <Select class="mr10" @update-value="changeWay" :selectlist="state.timeWay" 
+                tip="时间" placeholder="按时间选择"></Select>
+                <TimeDate hidden></TimeDate>
+                <Select :selectlist="state.classList" tip="班级" placeholder="请按照班级选择" />
+                <el-button class="ml10" type="primary" @click="selectData">查询数据</el-button>
             </div>
         </div>
         <div class="content">
@@ -44,12 +47,14 @@ const state = reactive({
         { name: '班级归档', link: '/record/report', active: false },
         { name: '儿童成长相册', link: '/subPage/album', active: true },
     ],
+    timeWay: [ {id: 1, label: '按学期选择', value: 1 }, { id: 2, label: '按时间选择',value: 2 }],
     classList: [
-        { id: 1, label: '班级1', value: 1 },
-        { id: 2, label: '班级2', value: 2 },
-        { id: 3, label: '班级3', value: 3 },
-        { id: 4, label: '班级4', value: 4 },
+        { id: 1, label: '班级1', value: 'classId-1' },
+        { id: 2, label: '班级2', value: 'classId-2' },
+        { id: 3, label: '班级3', value: 'classId-3' },
+        { id: 4, label: '班级4', value: 'classId-4' },
     ],
+    way: <boolean>false
 })
 
 const gotoChild = (item: any) => {
@@ -59,6 +64,17 @@ const gotoChild = (item: any) => {
 const changeCover = () => {
     console.log('更换封面')
 }
+
+
+const selectData = () => {
+    console.log('查询')
+}
+
+const changeWay = (val: any) => {
+    console.log('当前的值', val)
+}
+
+
 </script>
 
 <style scoped lang="scss">

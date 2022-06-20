@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="base card">
-                <p>开通类型：记录归档</p>
+                <p>服务套餐：记录归档</p>
                 <p>有效期：{{ formatTime(new Date()) }}  <el-icon><Avatar /></el-icon></p>
             </div>
         </div>
@@ -31,12 +31,12 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import { formatTime } from '@/utils/tool'
-import { getSchoolList } from '@/api'
-import { strArr } from '@/typings'
+import { getSchoolList, login } from '@/api'
+import { strNumberArr } from '@/typings'
 
 const state = reactive({
     header: ['学校名称', '班级数量', '教师数量', '儿童数量', '平台到欺时间'],
-    tableData: <strArr[]>[],
+    tableData: <strNumberArr[]>[],
     userInfo: {
         avatar: 'https://img.pinkyang.cn/2022.06.01-avatar.jpg',
         name: '爱呵呵',
@@ -47,6 +47,8 @@ const state = reactive({
 
 onMounted(async () => {
     const { data, status } = await getSchoolList()
+    const result = await login({ username: '', password: '' })
+    console.warn(result)
     console.log('data', data)
     const item = []
     for (const i of data) {

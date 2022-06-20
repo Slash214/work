@@ -31,3 +31,11 @@ export function getHomeLand(): any {
 		url: `${mockURL}/mock/homeland`
 	})
 }
+
+export function login(data: { username: string, password: string}): any {
+	return request({
+		method: 'POST',
+		data,
+		url: `${mockURL}/api/login`
+  })
+}
