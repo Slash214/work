@@ -38,7 +38,7 @@ const state = reactive({
     header: ['学校名称', '班级数量', '教师数量', '儿童数量', '平台到欺时间'],
     tableData: <strNumberArr[]>[],
     userInfo: {
-        avatar: 'https://img.pinkyang.cn/2022.06.01-avatar.jpg',
+        avatar: 'http://img.pinkyang.cn/2022.06.01-avatar.jpg',
         name: '爱呵呵',
         idf: '教师',
         school: '电子科技大学',

@@ -21,9 +21,9 @@ interface list {
 }
 const router = useRouter()
 const menu = ref<list[]>([
-	{ id: 1, icon: '', title: '儿童成长相册', desc: '接受接受接受接受接受', url: '/subPage/album'},
-	{ id: 2, icon: '', title: '儿童叙事记录报告', desc: '接受接受接受接受接受', url: '/subPage/album'},
-	{ id: 3, icon: '', title: 'COA成长报告', desc: '接受接受接受接受接受', url: '/subPage/grow'},
+	{ id: 1, icon: 'https://image.magicbaba.com/routineObj/PC/inspection/modular_10.png', title: '儿童成长相册', desc: '接受接受接受接受接受', url: '/subPage/album'},
+	{ id: 2, icon: 'https://image.magicbaba.com/routineObj/PC/inspection/modular_11.png', title: '儿童叙事记录报告', desc: '接受接受接受接受接受', url: '/subPage/album'},
+	{ id: 3, icon: 'https://image.magicbaba.com/routineObj/PC/inspection/modular_12.png', title: 'COA成长报告', desc: '接受接受接受接受接受', url: '/subPage/grow'},
 ])
 
 const handleLink = (url: string) => {
@@ -45,7 +45,7 @@ const handleLink = (url: string) => {
 		.item {
 			width: 32%;
 			margin: 0 2% 2% 0;
-			padding: 16px;
+			padding: 40px 16px;
 			border-radius: $br-m;
 			background-color: $white;
 			cursor: pointer;
@@ -59,8 +59,8 @@ const handleLink = (url: string) => {
 			}
 			.el-image {
 				border-radius: 50%;
-				width: 120px;
-				height: 120px;
+				width: 80px;
+				height: 80px;
 			}
 			h4 {
 			   padding: 10px 0;

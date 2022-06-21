@@ -2,9 +2,8 @@
     <div class="main">
 		<Crumbs :navlist="state.crumbs"></Crumbs>
 		<div class="options mb20 mt20">
-			<span>时间</span>
-			<Select  />
-			<!-- <el-button >查询数据</el-button> -->
+			<Select :selectlist="state.timeselect" placeholder="请选择学期" tip="时间" />
+			<el-button class="ml20" type="primary">查询数据</el-button>
 		</div>
 		<div class="container">
 			<h4 class="mb10">{{state.title}}</h4>
@@ -26,6 +25,14 @@
 import { onMounted, reactive } from 'vue';
 import crumbs from '@/common/breadcrumb'
 import {formatTime } from '@/utils/tool'
+// import { getTerm } from '@/api';
+
+type selectlist = {
+	id: number,
+	val: string,
+	start: string,
+	end: string
+}
 
 const state = reactive({
 	crumbs: [
@@ -38,15 +45,21 @@ const state = reactive({
 	tab: [
 		{ id: 1, name: '整包下载' }, { id: 2, name: '预览观察记录' },
 		{ id: 3, name: '预览活动记录'}, { id: 4, name: '自定义下载' }
-	]
+	],
+	timeselect: <selectlist[]>[]
 })
 
-
 let num:any = { one: '拉拉班级', two: '23', three: 23, four: '45', five: '95', six: '186' }
-onMounted(() => {
+onMounted(async () => {
 	for (let i = 0; i < 10; i++) {
 		state.list.push(num)
 	}
+
+	// const { data, info } = await getTerm({})
+	// console.log('1', data, )
+	// state.timeselect = data.map((e: any) => {
+		
+	// })
 })
 
 
@@ -63,6 +76,9 @@ const hanldehange = (item: any) => {
     width: 100%;
     background-color: $white;
     padding: 20px;
+	.options {
+		@include flex-auto();
+	}
 	.container {
 		margin: 0 auto;
 		width: 90%;

@@ -24,7 +24,7 @@ import MenuList from './MenuList/index.vue';
       height: 70px;
       line-height: 70px;
       background-color: #fff;
-      box-shadow: $base;
+      box-shadow: 0 2px 8px 0 rgb(0 0 0 / 5%);
    }
    .el-container {
       min-width: 1200px;
@@ -37,7 +37,7 @@ import MenuList from './MenuList/index.vue';
          height: 100%;
          min-height: 10vh;
          // border: 1px solid #e5e5e5;
-         box-shadow: $base;
+         box-shadow: 0 2px 8px 0 rgb(0 0 0 / 5%);
          border-radius: $br-s;
       }
       .el-main {

@@ -16,7 +16,8 @@ service.interceptors.request.use(
 	(config: AxiosRequestConfig) => {
 		// TODO 在这里可以加上想要在请求发送前处理的逻辑
 		// TODO 比如 loading 等 
-		config.headers = { token }
+		config.headers = {}
+		if (token) config.headers['magic-token'] = token
 		return config;
 	},
 	(error: AxiosError) => {

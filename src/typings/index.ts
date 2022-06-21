@@ -10,3 +10,9 @@ export interface strNumberArr {
 	nine?: string | number,
 	ten?: string | number,
 }
+
+export interface api<T = any, D = any > {
+	status: number,
+	info: string,
+	data: T;
+}
