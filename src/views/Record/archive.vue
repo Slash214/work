@@ -42,7 +42,6 @@ onMounted(async () => {
 
     if (status) {
         console.warn('请求成功')
-        
     }
 
     console.log('获取的数据', data, info, status)

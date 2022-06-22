@@ -16,7 +16,7 @@ import subPage  from './subpage/index'
 const routes: Array<RouteRecordRaw> = [
     ...System,
     ...Dasboard,
-    ...Test,
+    // ...Test,
     ...Record,
     ...FarmNews,
     ...HomeLand,

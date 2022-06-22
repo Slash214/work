@@ -3,7 +3,7 @@
         <span class="tips">{{ props.tip }}</span>
         <el-select
             @change="selectOnchange"
-            v-model="val"
+            v-model="value"
             class="m-2"
             :placeholder="props.placeholder || '默认搜索条件'"
             :size="props.size"
@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from '@vue/reactivity';
 import { onMounted, ref } from 'vue'
 
 interface selectlist {
@@ -50,16 +51,20 @@ const props: any = defineProps({
 })
 
 const emit = defineEmits(['updateValue'])
-const val = ref('')
+// const _val = ref('')
 
-onMounted(() => {
-    if (props.value) val.value = props.value
-})
+// onMounted(() => {
+//     if (props.value) _val.value = props.value
+// })
+
+
 
 const selectOnchange = () => {
-    // console.log('当前选择的值', val.value)
-    emit('updateValue', val.value)
+    // _val.value = ''
+    emit('updateValue', props.value)
 }
+
+
 </script>
 
 <style>

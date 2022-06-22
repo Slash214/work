@@ -19,6 +19,9 @@ export class ApiCtl {
 	static getrecord(data: {}) {
 		return ApiCtl.POSTMethods(`${mock2URL}/Index/index/actionName/V3_6_1/moduleType/1`, data)
 	}
+	static getGradeList(data: {}) {
+		return ApiCtl.POSTMethods(`${mock2URL}/mock/rgrade`, data)
+	}
 }
 
 

@@ -1,7 +1,7 @@
 # vue3+vite+element-plus+scss+TypeScript
 
 # overview 
-
+#### This is a refactoring framework for corporate PC web pages 
 
 ## 目录结构
 * public
@@ -19,6 +19,7 @@
 > * typings  TS类型声明   
 > * utils  工具函数目录   
 > * views  页面   
+> * store  pinia缓存   
 > * App.vue  入口页面   
 > * main.ts  入口函数   
 > * .prettierrc.js  格式化规则文件   
