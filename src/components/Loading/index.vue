@@ -1,5 +1,5 @@
 <template>
-    <div v-loading="props.show" :element-loading-text="props.text"></div>
+    <div v-if="props.show" class="loading" v-loading="props.show" :element-loading-text="props.text"></div>
 </template>
 
 <script setup lang="ts">
@@ -15,4 +15,8 @@ const props = defineProps({
 })
 </script>
 
-<style></style>
+<style scoped>
+.loading {
+    margin-top: 100px;
+}
+</style>

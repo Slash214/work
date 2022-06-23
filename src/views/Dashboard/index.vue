@@ -9,9 +9,9 @@
                     <p v-text="state.userInfo.idf"></p>
                 </div>
             </div>
-            <div class="base card">
-                <p>服务套餐：记录归档</p>
-                <p>有效期：{{ formatTime(new Date()) }}  <el-icon><Avatar /></el-icon></p>
+            <div class="card">
+                <p>四川省第一幼儿园</p>
+                <p>客服  <el-icon><Avatar /></el-icon></p>
             </div>
         </div>
         <div class="mid">
@@ -70,11 +70,15 @@ onMounted(async () => {
 .main {
     .top {
         width: 100%;
-        @include flex-auto(false, space-between);
+        @include flex-auto();
+        background-color: $white;
+        padding: 30px 20px;
+        height: 156px;
         .userinfo {
             @include flex-auto(center);
+            width: 250px;
             .content {
-                flex: 1;
+                // flex: 1;
                 margin-left: 30px;
                 font-size: $font14;
                 p {
@@ -91,13 +95,12 @@ onMounted(async () => {
                 }
             }
         }
-        .base {
-            width: 49%;
-            background-color: $white;
-            padding: 30px 20px;
-            height: 156px;
-
-        }
+        // .base {
+        //     width: 49%;
+        //     background-color: $white;
+        //     padding: 30px 20px;
+        //     height: 156px;
+        // }
         .card {
             @include flex-auto(false, space-between, column);
             color: #333;
