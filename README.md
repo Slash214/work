@@ -1,3 +1,5 @@
+[![OSCS Status](https://www.oscs1024.com/platform/badge/Slash214/work.svg?size=small)](https://www.oscs1024.com/project/Slash214/work?ref=badge_small)
+
 # vue3+vite+element-plus+scss+TypeScript
 
 # overview 
