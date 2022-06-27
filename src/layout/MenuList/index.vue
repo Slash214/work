@@ -5,6 +5,7 @@
         text-color="var(--system-menu-text-color)"
         active-text-color="var(--system-primary-color)"
         :default-active="'1'"
+        :default-openeds="openeds"
     >
         <menu-item v-for="(i, key) in allRouters" :menu="i" :key="key" />
     </el-menu>
@@ -13,10 +14,18 @@
 <script setup lang="ts">
 import MenuItem from './Menuitem.vue'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+
+const openeds = ref([
+    '/record'
+])
 
 const allRouters = useRouter().options.routes.filter(e => {
     return e.path !== '/login' && e.path !== '/system' && e.path !== '/:pathMatch(.*)' && e.path !== '/subPage'
 })
+
+
+
 
 console.log('全部路由器', allRouters)
 </script>
