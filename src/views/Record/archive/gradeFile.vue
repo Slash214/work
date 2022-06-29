@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import crumbs from '@/common/breadcrumb'
-import { formatTime } from '@/utils/tool'
+import { formatTime } from '@/utils'
 import { ApiCtl } from '@/api'
 import { ElMessage } from 'element-plus'
 
@@ -82,21 +82,21 @@ const state = reactive({
 
 let num: any = { one: '拉拉班级', two: '23', three: 23, four: '45', five: '95', six: '186' }
 onMounted(async () => {
-    const { data, status, info } = await ApiCtl.getTerm()
-    if (status) {
-        let item: selectlist[] = []
-        data.forEach((ele: { startTime: string; endTime: string; term: string }, key: number) => {
-            item.push({
-                id: key + 1,
-                start: ele.startTime,
-                end: ele.endTime,
-                value: ele.term,
-                label: ele.term,
-            })
-        })
-        state.timeselect = item
-    }
-    console.warn('info', info)
+    // const { data, status, info } = await ApiCtl.getTerm()
+    // if (status) {
+    //     let item: selectlist[] = []
+    //     data.forEach((ele: { startTime: string; endTime: string; term: string }, key: number) => {
+    //         item.push({
+    //             id: key + 1,
+    //             start: ele.startTime,
+    //             end: ele.endTime,
+    //             value: ele.term,
+    //             label: ele.term,
+    //         })
+    //     })
+    //     state.timeselect = item
+    // }
+    // console.warn('info', info)
 })
 
 const queryData = async () => {

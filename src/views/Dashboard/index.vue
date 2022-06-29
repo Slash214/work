@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
-import { formatTime } from '@/utils/tool'
+import { formatTime } from '@/utils'
 import { getSchoolList, login } from '@/api'
 import { strNumberArr } from '@/typings'
 

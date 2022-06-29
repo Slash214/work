@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -8,6 +8,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 
 const pathResolve = (dir: string) => resolve(__dirname, dir)
+
 
 export default defineConfig({
   plugins: [
@@ -36,11 +37,12 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist', // 打包路径 默认为项目下的dist目录
+    minify: 'terser',
     terserOptions: {
       compress: {
         keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
         drop_console: true, // 生产环境去除 console
-        drop_debugger: true // 生产环境去除 debugger
+        drop_debugger: true, // 生产环境去除 debugger
       }
     },
     chunkSizeWarningLimit: 1500 // chunk大小警告 kbs

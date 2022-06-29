@@ -16,3 +16,10 @@ export interface api<T = any, D = any > {
 	info: string,
 	data: T;
 }
+
+
+export interface TimeSelector {
+	startTime: string,
+	endTime: string,
+	term: string
+}

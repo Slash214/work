@@ -1,8 +1,13 @@
 <template>
-    <div v-if="props.show" class="loading" v-loading="props.show" :element-loading-text="props.text"></div>
+    <teleport to="#loading">
+        <div v-if="show" class="loading" v-loading :element-loading-text="props.text"></div>
+    </teleport>
 </template>
 
 <script setup lang="ts">
+import useDOMCreate from '@/hooks/useDOMCreate';
+
+useDOMCreate('loading')
 const props = defineProps({
     text: {
         type: String,

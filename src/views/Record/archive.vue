@@ -22,7 +22,12 @@ const state = reactive({
             desc: '',
             link: '/subPage/gradefile',
         },
-        { id: 2, name: 'icon-zongjiluliang', title: '教师记录归档', desc: '', link: '' },
+        {
+            id: 2, name: 'icon-zongjiluliang',
+            title: '教师记录归档',
+            desc: '',
+            link: '/subPage/teacherfile'
+        },
         { id: 3, name: 'icon-youeryuanshuliang', title: '全园记录数据统计', desc: '', link: '' },
         { id: 4, name: 'icon-fabutongzhi', title: '班级记录数据统计', desc: '', link: '' },
         { id: 5, name: 'icon-fabuzuoye', title: '教师记录数据统计', desc: '', link: '' },

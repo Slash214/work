@@ -24,7 +24,7 @@ import { onMounted, ref } from 'vue'
 
 interface selectlist {
     label: string
-    value: string
+    value: number |string 
 }
 
 const props: any = defineProps({
@@ -46,7 +46,7 @@ const props: any = defineProps({
     },
     value: {
         type: String,
-        default: '',
+        default: ''
     },
 })
 

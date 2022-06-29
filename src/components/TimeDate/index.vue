@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatTime } from '@/utils/tool';
+import { formatTime } from '@/utils';
 import { ref } from 'vue'
 
 const value1 = ref('')

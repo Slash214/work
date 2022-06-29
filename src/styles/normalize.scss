@@ -96,7 +96,6 @@ video {
     outline: none;
 }
 
-
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -215,17 +214,17 @@ a {
     margin-bottom: 40px;
 }
 
-// 后续fix 
+// 后续fix  360浏览器样式兼容
 .el-button {
     border: none;
     outline: none;
     background: var(--el-button-bg-color);
     border-color: var(--el-button-border-color);
-    color: var( --el-button-text-color);
+    color: var(--el-button-text-color);
     &:hover {
         background: var(--el-button-hover-bg-color);
         border-color: var(--el-button-hover-border-color);
-        color: var( --el-button-hover-text-color);
+        color: var(--el-button-hover-text-color);
     }
     &:active {
         color: var(--el-button-active-text-color);

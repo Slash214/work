@@ -1,4 +1,12 @@
+/**
+ * @description 本项目使用的工具函数
+ * @author 爱呵呵
+ * @createtime 2022/6/29
+ */
+
 import { format } from 'date-fns'
+
+
 /**
  * 时间格式化
  * @param {Date } date 时间
@@ -16,6 +24,7 @@ const formatTime = (date: Date, type: string = 'yyyy/MM/dd') => {
  * @returns {number} length 
  */
 const getObjectlength = (obj: {}) => Object.keys(obj).length
+
 
 export {
 	formatTime,

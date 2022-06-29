@@ -46,6 +46,12 @@ const subPage: Array<RouteRecordRaw> = [
 				meta: { title: '班级归档记录',  },
 				component: () => import('views/Record/archive/gradeFile.vue')
 			},
+			{
+				path: 'teacherfile',
+				name: 'teacherfile',
+				meta: { title: '教师归档记录',  },
+				component: () => import('views/Record/archive/teacherFile.vue')
+			},
 		]
 	},
 ]
