@@ -7,16 +7,20 @@
                 width="40%"
                 :before-close="handleClose"
             >
-                <div class="info">
-                    <p v-for="(val, key) of message" :key="key">{{ val }}</p>
-                </div>
-                <div class="progress">
-                    <el-progress
-                        type="circle"
-                        :status="percentage === 100 ? 'success' : ''"
-                        :percentage="percentage"
-                        :color="colors"
-                    />
+                <el-skeleton v-if="!message.length" :rows="3" animated />
+                <div v-else>
+                    <div class="info" v-if="!download">
+                        <p v-for="(val, key) of message" :key="key">{{ val }}</p>
+                    </div>
+                    <div class="progress" v-else>
+                        <el-progress
+                            type="circle"
+                            :status="percentage === 100 ? 'success' : ''"
+                            :percentage="percentage"
+                            :color="colors"
+                        />
+                        <p>{{percentage < 90 ? '正在打包下载资源中...' : '正在启动下载...' }}</p>
+                    </div>
                 </div>
                 <template #footer>
                     <span class="dialog-footer">
@@ -31,7 +35,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
-import useDOMCreate from '@/hooks/useDOMCreate';
+import useDOMCreate from '@/hooks/useDOMCreate'
 const props = defineProps({
     title: {
         type: String,
@@ -49,13 +53,12 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    // percentage: {
-    // 	type: Number,
-    // 	default: 100
-    // }
+    percentage: {
+    	type: Number,
+    	default: 0
+    }
 })
 useDOMCreate('modal')
-console.warn('prop', props.dialogVisible)
 const colors = [
     { color: '#f56c6c', percentage: 20 },
     { color: '#e6a23c', percentage: 40 },
@@ -74,19 +77,18 @@ const handleClose = (done: () => void) => {
             // catch error
         })
 }
-const percentage = ref(<number>0)
 
+const download = ref(<boolean>false)
 const confirom = () => {
-    // console.log('确认下载')
-    percentage.value += 10
+    download.value = !download.value
     emit('confirm', 'sure')
 }
 </script>
 
 <style scoped lang="scss">
 .dialog {
-	width: 100vw;
-	height: 100vh;
+    width: 100vw;
+    height: 100vh;
     .info {
         font-size: 14px;
         color: #333;
@@ -96,6 +98,16 @@ const confirom = () => {
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+    }
+    .progress {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+          margin-top: 20px;
         }
     }
 }

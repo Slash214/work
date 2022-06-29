@@ -52,19 +52,25 @@
             <h4 class="mt20">报告样式</h4>
             <div class="coverbox">
                 <div class="cover">
-                    <el-image src="https://image.magicbaba.com/routineObj/PC/coverPhoto/10.png"></el-image>
+                    <el-image
+                        src="https://image.magicbaba.com/routineObj/PC/coverPhoto/10.png"
+                    ></el-image>
                     <el-button type="primary" @click="changeCover">一键更换全班封面</el-button>
                 </div>
                 <div class="cover">
-                    <div>
-                        我就是寄语哦哦哦哦哦哦哦哦
-                    </div>
+                    <div>我就是寄语哦哦哦哦哦哦哦哦</div>
                     <el-button type="primary" @click="changeCover">添加封底寄语</el-button>
                 </div>
             </div>
         </div>
     </div>
-    <Dialog :dialog-visible="state.isVisible" :message="state.message" />
+    <Dialog
+        :btn-text="'点击下载'"
+        :dialog-visible="state.isVisible"
+        :message="state.message"
+        :percentage="state.percentage"
+        @confirm="download"
+    />
 </template>
 
 <script setup lang="ts">
@@ -76,7 +82,7 @@ import TimeDate from '@/components/TimeDate/index.vue'
 import { useRouter } from 'vue-router'
 import { computed } from '@vue/reactivity'
 import { ApiCtl } from '@/api'
-
+import { setInterval } from 'timers/promises'
 
 const router = useRouter()
 const state = reactive({
@@ -89,13 +95,18 @@ const state = reactive({
         { id: 2, label: '按时间选择', value: 2 },
     ],
     classList: <any>[],
-    timeList: <{label: string, value: '', start: string, end: string }[]>[],
+    timeList: <{ label: string; value: ''; start: string; end: string }[]>[],
     classvalue: '',
     isVisible: <boolean>false,
-    message: ['女人', 'nrsdasd', 'asdasdasd1'],
+    message: <string[]>[],
+    percentage: <number>0,
     way: <number>1,
     currentTime: { start: '', end: '', value: '' },
-    currentGrade: <{id: number, label: string, value: string, children?: any}> { id: 0, label: '', value: '' },
+    currentGrade: <{ id: number; label: string; value: string; children?: any }>{
+        id: 0,
+        label: '',
+        value: '',
+    },
     studentList: <{ stuName: string; coaMsgNum: number; stuData: {}; stuId: number }[]>[],
 })
 
@@ -108,7 +119,7 @@ onMounted(async () => {
                 label: val.term,
                 value: val.term,
                 start: val.startTime,
-                end: val.endTime
+                end: val.endTime,
             })
         }
         state.timeList = item
@@ -128,9 +139,8 @@ const gotoChild = (item: any) => {
 
 const changeCover = () => {
     console.log('更换封面')
-    state.isVisible = true
+    // state.isVisible = true
     console.log('地区的', state.isVisible)
-    
 }
 
 const selectData = async () => {
@@ -147,8 +157,53 @@ const changeWay = (val: any) => {
     console.error('是否改变', state.currentGrade, state.currentTime)
 }
 
-const outWord = () => {
+const outWord = async () => {
     console.log('导出')
+    state.isVisible = true
+    const { data, status, info } = await ApiCtl.getDownloadData({
+        classId: state.currentGrade.id,
+        startTime: state.currentTime.start,
+        endTime: state.currentTime.end,
+        selectFn: 'childManualPhoto',
+    })
+
+    if (status) {
+        console.log(data)
+        let { msgList, manualInfo } = data
+        state.message = [
+            `当前班级为:${state.currentGrade.value}`,
+            `当前数据为: ${msgList.length}条, 共有儿童${state.studentList.length}名`,
+            `预计下载时间为: 5-20分钟`,
+        ]
+    }
+
+    // 错误
+    console.error('我的值', info)
+    if (!status) {
+        state.message = [
+            `当前班级为:${state.currentGrade.value}`,
+            `当前数据为: 0条, 共有儿童${state.studentList.length}名`,
+            `预计下载时间为: 0`,
+        ]
+    }
+}
+
+const download = (val: string) => {
+    console.log('点击了启动下载', val)
+    if (val === 'sure') {
+        let timer: any = ''
+        // setInterval(() => {
+        //     console.log(1)
+        // }, 1000)
+
+        // if (state.percentage === 100) {
+        //     clearInterval(timer)
+        // }
+    }
+}
+
+const valChange = () => {
+    console.log(1111)
 }
 
 const getTimeData = async (val: any) => {
@@ -166,14 +221,13 @@ const getTimeData = async (val: any) => {
         })
         console.log('获取的data', data, info, status)
         if (status) {
-
             let item = []
             for (const val of data) {
                 item.push({
                     id: val.classId,
                     label: val.className,
                     value: val.className,
-                    children: val.children
+                    children: val.children,
                 })
             }
             state.classList = item

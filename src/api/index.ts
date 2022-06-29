@@ -49,6 +49,10 @@ export class ApiCtl {
 	static getGradePerson(data: { msgType: number | string, startTime: string, endTime: string }) {
 		return ApiCtl.POSTMethods(`${mock2URL}/Index/index/module/student/crudType/select/selectFn/getSchoolClassStuWriteList`, data)
 	}
+	// 获取成长记录下载数据
+	static getDownloadData(data: {classId?: number, stuId?: number, selectFn: string, startTime: string, endTime: string}) {
+		return ApiCtl.POSTMethods(`${mock2URL}/Index/index/module/coaNew/crudType/select/actionName/CoaSelect`, data)
+	}
 }
 
 
