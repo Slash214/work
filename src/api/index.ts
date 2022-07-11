@@ -7,19 +7,7 @@
  */
 
 import request from './http'
-const env = import.meta.env.MODE
-let baseURL: string = ''
-console.error('env', env)
-console.warn('当前开发环境', import.meta.env.MODE)
-const map = new Map<string, any>([
 
-	['dev', 'http://127.0.0.1:4523/m1/1157551-0-default'],
-	['test','http://192.168.2.1/1157551-0-default'],
-	['production', 'https://www.lovehaha.cn/api'],
-])
-console.log(map.get(env))
-if (map.get(env)) baseURL = map.get(env)
-else console.error('URL配置错误')
 
 const mockURL = 'https://www.fastmock.site/mock/ad6546ec6973c684608e11227e797c5e/api'
 const mock2URL = 'http://192.168.124.33:4523/m1/1157551-0-default'
@@ -53,14 +41,14 @@ export class ApiCtl {
 	static getDownloadData(data: {classId?: number, stuId?: number, selectFn: string, startTime: string, endTime: string}) {
 		return ApiCtl.POSTMethods(`${mock2URL}/Index/index/module/coaNew/crudType/select/actionName/CoaSelect`, data)
 	}
-}
 
+}
 
 
 export function userLogin(data: { username: string, password: string }): any {
 	return request({
 		method: 'POST',
-		url: `${prdURL}/user/login`,
+		url: `https://www.lovehaha.cn/api/user/login`,
 		data
 	})
 }

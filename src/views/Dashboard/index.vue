@@ -31,8 +31,9 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import { formatTime } from '@/utils'
-import { getSchoolList, login } from '@/api'
+import {  } from '@/api'
 import { strNumberArr } from '@/typings'
+import { getTest } from '@/api/user'
 
 const state = reactive({
     header: ['学校名称', '班级数量', '教师数量', '儿童数量', '平台到欺时间'],
@@ -46,22 +47,8 @@ const state = reactive({
 })
 
 onMounted(async () => {
-    const { data, status } = await getSchoolList()
-    const result = await login({ username: '', password: '' })
+    const result = await getTest({})
     console.warn(result)
-    console.log('data', data)
-    const item = []
-    for (const i of data) {
-        item.push({
-            one: i.name,
-            two: i.num,
-            three: i.user,
-            four: i.child,
-            five: i.time,
-        })
-    }
-    state.tableData = item
-    console.warn(item)
 })
 </script>
 

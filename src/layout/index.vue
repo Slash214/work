@@ -4,7 +4,9 @@
    </el-header>
    <el-container>
       <el-aside>
-         <MenuList />
+         <el-affix :offset="20">
+             <MenuList />
+         </el-affix>
       </el-aside>
       <el-main>
          <router-view></router-view>
@@ -33,11 +35,10 @@ import MenuList from './MenuList/index.vue';
       margin: 20px auto;
       .el-aside {
          width: 200px;
-         background-color: #fff;
          height: 100%;
          min-height: 10vh;
-         // border: 1px solid #e5e5e5;
-         box-shadow: 0 2px 8px 0 rgb(0 0 0 / 5%);
+         // background-color: #fff;
+         // box-shadow: 0 2px 8px 0 rgb(0 0 0 / 5%);
          border-radius: $br-s;
       }
       .el-main {

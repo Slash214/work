@@ -1,14 +1,30 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 import { ElMessage } from 'element-plus'
 
+const env = import.meta.env.MODE
+let baseURL = ''
+
+
+const map = new Map<string, string>([
+	['dev', 'http://127.0.0.1:4523/m1/1157551-0-default'],
+	['test', 'http://192.168.2.1/1157551-0-default'],
+	['production', 'https://www.lovehaha.cn/api'],
+])
+if (map.get(env)) baseURL = map.get(env) || ''
+else console.error('配置错误')
+
+console.error('baseURL', baseURL)
+
+
 // 创建实例
 const service: AxiosInstance = axios.create({
-	baseURL: '',
+	baseURL,
 	timeout: 1000 * 60 * 30,
 	headers: {
 		'Content-Type': 'application/json'
 	}
 })
+
 
 // 请求拦截器
 const token:string = localStorage.getItem('token') || ''
@@ -24,6 +40,7 @@ service.interceptors.request.use(
 		return Promise.reject(error)
 	}
 )
+
 
 // 响应拦截器
 service.interceptors.response.use(
